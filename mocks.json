@@ -1,0 +1,66 @@
+{
+  "properties": [
+    {
+      "id": 1,
+        "title": "React Estate",
+        "description": "Evans Tower very high demand corner junior one bedroom plus a large balcony boasting full open NYC views. You need to see the views to believe them. Mint condition with new hardwood floors. Lots of closets plus washer and dryer.",
+        "cover": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80",
+        "label": "For Sale",
+        "status": "Featured",
+        "price": "2.0000",
+        "type": "Apartamento",
+        "address": "318 E 84th St, New York",
+        "attributes": [
+          {
+            "garage": 2,
+            "bathrooms": 3,
+            "bedroom": "5",
+            "sqft": 240
+          }
+        ],
+        "gallery": [
+        {
+            "id": 1,
+            "title": "Image 1",
+            "url": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        },
+        {
+            "id": 2,
+            "title": "Image 2",
+            "url": "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        }
+      ]
+    },
+    {
+      "id": 2,
+        "title": "Angular Estate",
+        "description": "Mussum Ipsum, cacilds vidis litro abertis. Não sou faixa preta cumpadi, sou preto inteiris, inteiris. Nec orci ornare consequat",
+        "cover": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80",
+        "label": "For Rent",
+        "status": "Featured",
+        "price": "2.0000",
+        "type": "Apartamento",
+        "address": "318 E 84th St, New York",
+        "attributes": [
+          {
+            "garage": 2,
+            "bathrooms": 3,
+            "bedroom": "5",
+            "sqft": 240
+          }
+        ],
+        "gallery": [
+        {
+            "id": 1,
+            "title": "Image 1",
+            "url": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        },
+        {
+            "id": 2,
+            "title": "Image 2",
+            "url": "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        }
+      ]
+    }
+  ]
+}
