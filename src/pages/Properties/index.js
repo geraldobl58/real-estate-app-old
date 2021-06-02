@@ -17,6 +17,8 @@ import {
 
 import api from '../../services/api';
 
+import { BASE_URL } from '../../utils/baseUrl';
+
 export default function Properties() {
   const [properties, setProperties] = useState([]);
   const [filteredProperties, setFilteredProperties] = useState([]);
@@ -25,7 +27,7 @@ export default function Properties() {
 
   useEffect(() => {
     async function getData() {
-      const response = await api.get('/properties');
+      const response = await api.get('/imoveis');
       console.log(response.data);
       setProperties(response.data);
     }
@@ -63,15 +65,18 @@ export default function Properties() {
             />
             <select value={select} onChange={(e) => setSelect(e.target.value)}>
               <option value="">Selecione</option>
-              <option value="For Sale">For Sale</option>
-              <option value="For Rent">For Rent</option>
+              <option value="Venda">Venda</option>
+              <option value="Alugar">Alugar</option>
             </select>
           </WrapperSearchForm>
         </WrapperSearch>
         <WrapperCard>
           {filteredProperties.map((property) => (
             <div key={property.id}>
-              <img src={property.cover} alt={property.title} />
+              <img
+                src={`${BASE_URL}${property.cover.url}`}
+                alt={property.title}
+              />
               <span>{property.label}</span>
               <span>{property.status}</span>
               <strong>R${property.price}</strong>
@@ -83,26 +88,24 @@ export default function Properties() {
                   {property.address}
                 </small>
                 <WrapperAttributes>
-                  {property.attributes.map((attribute) => (
-                    <ul key={property.id}>
-                      <li>
-                        <GiHomeGarage size={16} />
-                        <b>{attribute.garage}</b>
-                      </li>
-                      <li>
-                        <FaBath size={16} />
-                        <b>{attribute.garage}</b>
-                      </li>
-                      <li>
-                        <RiHotelBedLine size={20} />
-                        <b>{attribute.bedroom}</b>
-                      </li>
-                      <li>
-                        <FaWaveSquare size={16} />
-                        <b>{attribute.sqft}m²</b>
-                      </li>
-                    </ul>
-                  ))}
+                  <ul>
+                    <li>
+                      <GiHomeGarage size={16} />
+                      <b>{property.garage}</b>
+                    </li>
+                    <li>
+                      <FaBath size={16} />
+                      <b>{property.bathrooms}</b>
+                    </li>
+                    <li>
+                      <RiHotelBedLine size={20} />
+                      <b>{property.bedroom}</b>
+                    </li>
+                    <li>
+                      <FaWaveSquare size={16} />
+                      <b>{property.sqft}m²</b>
+                    </li>
+                  </ul>
                 </WrapperAttributes>
               </div>
             </div>

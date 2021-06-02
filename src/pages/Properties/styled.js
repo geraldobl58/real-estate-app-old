@@ -63,6 +63,8 @@ export const WrapperCard = styled.div`
       height: auto;
       max-width: 100%;
       border-radius: 5px;
+      background: #ccc;
+      min-height: 200px;
     }
 
     span {
