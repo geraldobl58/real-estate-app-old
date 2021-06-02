@@ -11,7 +11,7 @@ export const BannerWrapper = styled.section`
   transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
   position: relative;
   width: 100%;
-  min-height: 700px;
+  min-height: 480px;
 `;
 
 export const BannerWrapperOverlay = styled.div`

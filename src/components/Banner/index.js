@@ -6,7 +6,7 @@ export default function Banner() {
   return (
     <BannerWrapper>
       <BannerWrapperOverlay>
-        <h1>Find Your Dream Home</h1>
+        <h1>Encontre a sua casa do sonho</h1>
       </BannerWrapperOverlay>
     </BannerWrapper>
   );
