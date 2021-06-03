@@ -12,6 +12,8 @@ import {
 
 import api from '../../services/api';
 
+import { BASE_URL } from '../../utils/baseUrl';
+
 export default function Property() {
   const [property, setProperty] = useState([]);
   const [gallery, setGallery] = useState([]);
@@ -20,7 +22,7 @@ export default function Property() {
 
   useEffect(() => {
     async function getData() {
-      const response = await api.get(`/properties/${params.id}`);
+      const response = await api.get(`/imoveis/${params.id}`);
       console.log(response.data);
       setProperty(response.data);
       setGallery(response.data.gallery);
@@ -37,7 +39,7 @@ export default function Property() {
           <ul>
             {gallery.map((image) => (
               <li key={image.id}>
-                <img src={image.url} alt={image.title} />
+                <img src={`${BASE_URL}${image.url}`} alt={image.title} />
               </li>
             ))}
           </ul>
