@@ -6,9 +6,12 @@ export const WrapperPropertySingleGallery = styled.div`
   ul {
     display: flex;
     align-items: center;
+    list-style: none;
     li {
       img {
         max-width: 100%;
+        height: 500px;
+        padding: 5px;
       }
     }
   }

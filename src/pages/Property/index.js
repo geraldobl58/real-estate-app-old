@@ -1,4 +1,9 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useState, useEffect } from 'react';
+import Slider from 'react-slick';
+
 import { useRouteMatch } from 'react-router-dom';
 
 import Header from '../../components/Header';
@@ -13,6 +18,36 @@ import {
 import api from '../../services/api';
 
 import { BASE_URL } from '../../utils/baseUrl';
+
+function SampleNextArrow({ className, style, onClick }) {
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: 'red' }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow({ className, style, onClick }) {
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', background: 'green', padding: 100 }}
+      onClick={onClick}
+    />
+  );
+}
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
+};
 
 export default function Property() {
   const [property, setProperty] = useState([]);
@@ -36,13 +71,15 @@ export default function Property() {
       <Header />
       <WrapperPropertySingle>
         <WrapperPropertySingleGallery>
-          <ul>
+          <Slider {...settings}>
             {gallery.map((image) => (
-              <li key={image.id}>
-                <img src={`${BASE_URL}${image.url}`} alt={image.title} />
-              </li>
+              <ul key={image.id}>
+                <li key={image.id}>
+                  <img src={`${BASE_URL}${image.url}`} alt={image.title} />
+                </li>
+              </ul>
             ))}
-          </ul>
+          </Slider>
         </WrapperPropertySingleGallery>
         <WrapperPropertySingleContent>
           <div>

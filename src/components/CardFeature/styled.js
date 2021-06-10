@@ -122,9 +122,3 @@ export const WrapperAttributes = styled.section`
     }
   }
 `;
-
-export const NoEmpty = styled.div`
-  text-align: center;
-  margin-top: 20px;
-  font-size: 24px;
-`;
