@@ -132,3 +132,11 @@ export const WrapperAttributes = styled.section`
     }
   }
 `;
+
+export const WrapperNotFound = styled.div`
+  text-align: center;
+  h1 {
+    color: #453fa2;
+    font-size: 36px;
+  }
+`;

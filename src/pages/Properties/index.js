@@ -13,9 +13,12 @@ import {
   WrapperSearchForm,
   WrapperCard,
   WrapperAttributes,
+  WrapperNotFound,
 } from './styled';
 
 import api from '../../services/api';
+
+import { useLoading } from '../../hooks/Loading';
 
 import { BASE_URL } from '../../utils/baseUrl';
 
@@ -25,15 +28,19 @@ export default function Properties() {
   const [search, setSearch] = useState('');
   const [select, setSelect] = useState('');
 
+  const { setIsLoading } = useLoading();
+
   useEffect(() => {
     async function getData() {
+      setIsLoading(true);
       const response = await api.get('/imoveis');
       console.log(response.data);
       setProperties(response.data);
+      setIsLoading(false);
     }
 
     getData();
-  }, []);
+  }, [setIsLoading]);
 
   useEffect(() => {
     setFilteredProperties(
@@ -71,46 +78,57 @@ export default function Properties() {
           </WrapperSearchForm>
         </WrapperSearch>
         <WrapperCard>
-          {filteredProperties.map((property) => (
-            <div key={property.id}>
-              <img
-                src={`${BASE_URL}${property.cover.url}`}
-                alt={property.title}
-              />
-              <span>{property.label}</span>
-              <span>{property.status}</span>
-              <strong>R${property.price}</strong>
-              <div>
-                <p>{property.type}</p>
-                <h3>{property.title}</h3>
-                <small>
-                  <MdMyLocation size={16} />
-                  {property.address}
-                </small>
-                <WrapperAttributes>
-                  <ul>
-                    <li>
-                      <GiHomeGarage size={16} />
-                      <b>{property.garage}</b>
-                    </li>
-                    <li>
-                      <FaBath size={16} />
-                      <b>{property.bathrooms}</b>
-                    </li>
-                    <li>
-                      <RiHotelBedLine size={20} />
-                      <b>{property.bedroom}</b>
-                    </li>
-                    <li>
-                      <FaWaveSquare size={16} />
-                      <b>{property.sqft}m²</b>
-                    </li>
-                  </ul>
-                </WrapperAttributes>
+          {filteredProperties &&
+            filteredProperties.map((property) => (
+              <div key={property.id}>
+                <img
+                  src={`${BASE_URL}${property.cover.url}`}
+                  alt={property.title}
+                />
+                <span>{property.label}</span>
+                <span>{property.status}</span>
+                <strong>
+                  {new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL',
+                  }).format(property.price)}
+                </strong>
+                <div>
+                  <p>{property.type}</p>
+                  <h3>{property.title}</h3>
+                  <small>
+                    <MdMyLocation size={16} />
+                    {property.address}
+                  </small>
+                  <WrapperAttributes>
+                    <ul>
+                      <li>
+                        <GiHomeGarage size={16} />
+                        <b>{property.garage}</b>
+                      </li>
+                      <li>
+                        <FaBath size={16} />
+                        <b>{property.bathrooms}</b>
+                      </li>
+                      <li>
+                        <RiHotelBedLine size={20} />
+                        <b>{property.bedroom}</b>
+                      </li>
+                      <li>
+                        <FaWaveSquare size={16} />
+                        <b>{property.sqft}m²</b>
+                      </li>
+                    </ul>
+                  </WrapperAttributes>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </WrapperCard>
+        {filteredProperties.length === 0 && (
+          <WrapperNotFound>
+            <h1>Nenhum imóvel encontrado com sua pesquisa, tente novamente!</h1>
+          </WrapperNotFound>
+        )}
       </Wrapper>
     </>
   );
