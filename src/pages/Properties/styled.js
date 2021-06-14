@@ -34,6 +34,24 @@ export const WrapperSearchForm = styled.div`
     padding: 14px;
     border-radius: 100px;
     border: none;
+    border-radius: 50px;
+    border: 1px solid #d8d8d8;
+    margin-left: 10px;
+    margin-right: 20px;
+  }
+
+  select {
+    height: 50px;
+    width: 180px;
+    color: #24324a;
+    background: #fff;
+    outline: none !important;
+    border-radius: 50px;
+    border: 1px solid #d8d8d8;
+    margin: 0;
+    transition: all 0.3s ease-in-out 0s;
+    padding: 0 10px;
+    cursor: pointer;
   }
 `;
 
@@ -104,6 +122,11 @@ export const WrapperCard = styled.div`
         margin-right: 5px;
       }
     }
+  }
+
+  a {
+    color: #222;
+    text-decoration: none;
   }
 `;
 

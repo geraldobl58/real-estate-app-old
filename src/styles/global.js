@@ -11,7 +11,7 @@ export default createGlobalStyle`
     background: #f7f7f7;
     -webkit-font-smoothing: antialiased;
   }
-  body, input, button {
+  body, input, button, select {
     font: 16px Nunito, sans-serif;
   }
   #root {
