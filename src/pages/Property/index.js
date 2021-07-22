@@ -23,7 +23,13 @@ function SampleNextArrow({ className, style, onClick }) {
   return (
     <div
       className={className}
-      style={{ ...style, display: 'block', background: 'red' }}
+      style={{
+        ...style,
+        display: 'block',
+        background: 'red',
+        padding: 100,
+        zIndex: 99,
+      }}
       onClick={onClick}
     />
   );
@@ -33,7 +39,13 @@ function SamplePrevArrow({ className, style, onClick }) {
   return (
     <div
       className={className}
-      style={{ ...style, display: 'block', background: 'green', padding: 100 }}
+      style={{
+        ...style,
+        display: 'block',
+        background: 'green',
+        padding: 100,
+        zIndex: 99,
+      }}
       onClick={onClick}
     />
   );
