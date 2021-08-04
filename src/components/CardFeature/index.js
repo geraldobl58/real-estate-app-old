@@ -7,8 +7,6 @@ import { GiHomeGarage } from 'react-icons/gi';
 import { FaBath, FaWaveSquare } from 'react-icons/fa';
 import { RiHotelBedLine } from 'react-icons/ri';
 
-import { BASE_URL } from '../../utils/baseUrl';
-
 import { WrapperTitle, WrapperCard, WrapperAttributes } from './styled';
 
 export default function CardFeature({ properties }) {
@@ -24,10 +22,7 @@ export default function CardFeature({ properties }) {
             property.status === 'Destaque' && (
               <Link to={`/property/${property.id}`} key={property.id}>
                 <div>
-                  <img
-                    src={`${BASE_URL}${property.cover.url}`}
-                    alt={property.title}
-                  />
+                  <img src={property.cover?.url} alt={property.title} />
                   <span>{property.label}</span>
                   <span>{property.status}</span>
                   <strong>
